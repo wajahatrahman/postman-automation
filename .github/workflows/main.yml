@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,7 +21,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - name: Checkout your repository
+        uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -32,12 +33,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      
+
       - name: Newman CLI (Postman) Action
-      - uses: anthonyvscode/newman-action@v1.1
-      - with: 
+        uses: anthonyvscode/newman-action@v1.1
+        with:
           collection: collection.json
           reporters: cli
-          
+
       - name: Output summary to console
         run: echo ${{ steps.run-newman.outputs.summary }}
