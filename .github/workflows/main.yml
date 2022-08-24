@@ -34,8 +34,8 @@ jobs:
           echo test, and deploy your project.
       
       - name: Newman CLI (Postman) Action
-      - uses: anthonyvscode/newman-action@v1.1
-      - with: 
+        uses: anthonyvscode/newman-action@v1.1
+        with: 
           collection: collection.json
           reporters: cli
           
